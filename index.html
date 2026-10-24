@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <meta name="description" content="A focused job application workspace for DevOps, SRE, and platform engineering roles.">
+  <title>OpsReady | DevOps, SRE &amp; Platform Career Copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="results-ui.css">
+  <link rel="stylesheet" href="pdf-preview.css">
+  <style>.download-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.download-actions .button{font-size:10px;padding:8px 9px}@media(max-width:520px){.download-actions{justify-content:flex-start}}</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="OpsReady home"><span class="brand-mark">O</span><span>ops<span class="brand-accent">ready</span></span></a>
+    <div class="topbar-right"><span class="local-indicator"><i></i> Private workspace</span><label class="theme-picker"><span>Theme</span><select id="themeSelect" aria-label="Choose appearance"><option value="light">Light</option><option value="dark">Dark</option><option value="system">System</option></select></label><span class="avatar">OR</span></div>
+  </header>
+  <main class="shell" id="top">
+    <aside class="sidebar" aria-label="Application steps">
+      <div class="side-caption">CAREER TOOLKIT</div>
+      <a class="side-link current" href="#inputs"><span class="side-icon">01</span>Role requirements</a>
+      <a class="side-link" href="#results"><span class="side-icon">02</span>Resume fit &amp; quality</a>
+      <a class="side-link" href="#email-card"><span class="side-icon">03</span>Hiring team outreach</a>
+      <div class="side-help"><span class="help-icon">✳</span><strong>Show operational impact</strong><p>Connect infrastructure work to reliability, delivery speed, security, and measurable outcomes.</p></div>
+      <div class="side-foot">OPSREADY <span>·</span> INFRASTRUCTURE CAREERS</div>
+    </aside>
+    <section class="content">
+      <div class="page-heading">
+        <div><div class="overline">DEVOPS · SRE · PLATFORM ENGINEERING</div><h1>Build a stronger infrastructure application</h1><p>Align your real experience with the role. Keep the evidence, remove the guesswork.</p></div>
+        <div class="heading-badge"><span class="spark">✦</span> One role, one focused application</div>
+      </div>
+      <div class="progress"><div class="progress-step done"><span>1</span><b>Add role inputs</b></div><i></i><div class="progress-step"><span>2</span><b>Review resume fit</b></div><i></i><div class="progress-step"><span>3</span><b>Apply with confidence</b></div></div>
+      <div class="section-title" id="inputs"><div><span class="section-number">01</span><h2>Role requirements &amp; your experience</h2></div><span class="required-hint">Resume and job description are required</span></div>
+      <div class="input-grid">
+        <article class="panel"><div class="panel-heading"><div class="panel-icon blue">▤</div><div><h3>Your base resume</h3><p>Keep your original experience and project details intact.</p></div><span class="required">REQUIRED</span></div>
+          <label class="upload-zone" id="resumeDrop"><input id="resumeFile" type="file" accept=".pdf,.docx,.txt"><span class="upload-symbol">↑</span><b>Choose a file <span>or drag it here</span></b><small>PDF, DOCX, or TXT · 10 MB max</small></label><div class="file-name" id="resumeName"></div>
+          <label class="field-label" for="resumeText">Resume text</label><textarea id="resumeText" class="input-area" placeholder="Paste your resume text here, or upload a file above…"></textarea><p class="privacy-note"><span>⌑</span> When you build drafts, your resume and job description are sent to Google Gemini for generation. Review Google’s data terms before sharing sensitive information.</p>
+        </article>
+        <article class="panel"><div class="panel-heading"><div class="panel-icon violet">⌕</div><div><h3>Target role description</h3><p>Paste the JD or upload its document or screenshot.</p></div><span class="required">REQUIRED</span></div>
+          <label class="upload-zone" id="jdDrop"><input id="jdFile" type="file" accept="image/*,.pdf,.docx,.txt"><span class="upload-symbol">↑</span><b>Choose a file <span>or drag it here</span></b><small>PDF, DOCX, TXT, or image · 10 MB max</small></label><div class="file-name" id="jdName"></div>
+          <label class="field-label" for="jdText">Job description text</label><textarea id="jdText" class="input-area" placeholder="Paste the full job description here…"></textarea><p class="privacy-note"><span>ⓘ</span> Image text is extracted with OCR; proofread the result.</p>
+        </article>
+      </div>
+      <div class="input-grid lower-grid">
+        <article class="panel compact-panel"><div class="panel-heading"><div class="panel-icon green">↗</div><div><h3>Job application link</h3><p>Open the employer’s application page when you’re ready.</p></div></div><label class="field-label" for="jobUrl">Job or careers page URL <span class="optional">OPTIONAL</span></label><div class="inline-field"><input id="jobUrl" class="text-input" type="url" placeholder="https://company.com/careers/role"><button class="button button-secondary" id="openJob">Open link ↗</button></div><div class="role-focus-row"><label class="field-label" for="roleFocus">Resume focus</label><select id="roleFocus" class="text-input"><option value="auto">Auto-detect from JD</option><option value="devops">DevOps Engineer</option><option value="sre">Site Reliability Engineer</option><option value="platform">Platform Engineer</option></select></div><p class="helper-text">Applications are submitted on the employer’s website.</p></article>
+        <article class="panel compact-panel"><div class="panel-heading"><div class="panel-icon amber">✉</div><div><h3>Personalize your email</h3><p>These details help create a more personal introduction.</p></div></div><div class="two-fields"><div><label class="field-label" for="yourName">Your name <span class="optional">OPTIONAL</span></label><input id="yourName" class="text-input" type="text" placeholder="Your name"></div><div><label class="field-label" for="company">Company / contact <span class="optional">OPTIONAL</span></label><input id="company" class="text-input" type="text" placeholder="Company or hiring manager"></div></div></article>
+      </div>
+      <div class="action-row"><button class="button button-primary" id="analyze"><span>✦</span> Build drafts with Gemini</button><button class="button button-text" id="clear">Clear form</button><span class="status" id="status">Ready when you are</span></div>
+      <section class="results" id="results">
+        <div class="section-title result-title" id="results-anchor"><div><span class="section-number">02</span><h2>Your application workspace</h2><span class="draft-source" id="draftSource">Draft source: waiting for generation</span></div></div>
+        <div class="results-overview">
+          <article class="panel alignment-summary"><div class="alignment-score"><strong id="scoreSummary">—</strong><span>%</span></div><div class="alignment-copy"><h3>Generated resume ATS-style match</h3><p id="coverageTextSummary">Build your tailored resume to see matching job terms.</p><div class="match-bar"><i id="coverageBarSummary"></i></div><small>Calculated from the generated resume · estimate, not an employer ATS score</small><small class="experience-fit" id="experienceFit" hidden></small></div></article>
+          <article class="panel apply-panel"><div class="apply-icon">↗</div><div class="apply-copy"><h3>Ready to apply?</h3><p>Review the employer’s instructions and submit your reviewed application on their site.</p></div><button class="button button-primary" id="applyNow">Open application page ↗</button></article>
+        </div>
+        <div class="result-tabs" role="tablist" aria-label="Application packet sections">
+          <button class="result-tab active" id="result-tab-resume" type="button" role="tab" aria-selected="true" data-result-tab="resume">Resume</button>
+          <button class="result-tab" id="result-tab-cover" type="button" role="tab" aria-selected="false" data-result-tab="cover">Cover letter</button>
+          <button class="result-tab" id="result-tab-email" type="button" role="tab" aria-selected="false" data-result-tab="email">Cold email</button>
+          <button class="result-tab" id="result-tab-match" type="button" role="tab" aria-selected="false" data-result-tab="match">Suggestions <span id="suggestionCount" class="tab-count">0</span></button>
+        </div>
+        <div class="result-panes">
+          <div class="result-pane active" role="tabpanel" data-result-pane="resume">
+            <article class="panel resume-panel"><div class="result-card-heading"><div><h3>Role-tailored resume</h3><p>Edit the draft here; PDF preview and download use your latest changes.</p></div><div class="download-actions"><button class="button button-primary button-small" id="downloadPdf">▣ Preview PDF</button><button class="button button-secondary button-small" id="downloadResume">↓ Download .txt</button></div></div><label class="sr-only" for="resumeOut">Editable tailored resume</label><textarea id="resumeOut" class="output-area"></textarea><div class="output-actions"><button class="button button-secondary" id="copyResume">Copy resume</button><span class="edit-hint">Your edits are included in the downloads</span></div></article>
+          </div>
+          <div class="result-pane" role="tabpanel" data-result-pane="cover" hidden><article class="panel" id="cover-letter-card"><div class="result-card-heading"><div><h3>Cover letter</h3><p>Edit your letter here; PDF export uses these changes.</p></div><div class="panel-icon blue">▤</div></div><label class="sr-only" for="coverLetterOut">Editable cover letter</label><textarea id="coverLetterOut" class="letter-area"></textarea><div class="output-actions stacked"><button class="button button-primary" id="downloadCoverLetter">↓ Download cover letter PDF</button><button class="button button-secondary" id="copyCoverLetter">Copy cover letter</button></div><p class="helper-text">Check the company, role, examples, and contact details before sending.</p></article></div>
+          <div class="result-pane" role="tabpanel" data-result-pane="email" hidden><article class="panel" id="email-card"><div class="result-card-heading"><div><h3>Hiring team introduction</h3><p>A concise, editable outreach note.</p></div><div class="panel-icon amber">✉</div></div><label class="sr-only" for="emailOut">Editable outreach email</label><textarea id="emailOut" class="email-area"></textarea><div class="output-actions stacked"><button class="button button-secondary" id="copyEmail">Copy email</button><button class="button button-text" id="mailto">Open in email app ↗</button></div><p class="helper-text">Add the recipient’s email address in your email app. OpsReady does not send messages.</p></article></div>
+          <div class="result-pane" role="tabpanel" data-result-pane="match" hidden><article class="panel match-panel"><div class="match-card"><div class="match-head"><div><h4>Generated resume ATS-style match</h4><p>Relevant DevOps, SRE, and platform terms found in the tailored resume</p></div><div class="match-number"><strong id="score">—</strong><span>%</span></div></div><div class="match-bar"><i id="coverageBar"></i></div><div class="match-caption"><span id="coverageText">— terms found</span><span>Estimate, not an employer ATS score</span></div><div class="keywords" id="keywords"></div><div id="matchSuggestions" class="match-suggestions" aria-live="polite"></div><div class="score-note"><b>How this estimate is calculated</b><p>After Gemini returns the tailored resume, OpsReady checks how many selected role-focused terms from the job description appear in that generated text. ATS products use different rules, so this is not an official ATS score or hiring prediction. Add missing skills only when your experience supports them.</p></div><div class="resume-checks"><div class="checks-heading"><b>Infrastructure resume quality checks</b><span>Evidence-based signals</span></div><div id="resumeChecks" class="checks-list"></div></div></div></article></div>
+        </div>
+      </section>
+      <footer class="footer">OpsReady <span>·</span> Practical tooling for infrastructure career moves</footer>
+    </section>
+  </main>
+  <dialog class="pdf-dialog" id="resumePdfDialog" aria-labelledby="resumePdfTitle"><div class="pdf-dialog-header"><div><h2 id="resumePdfTitle">Tailored resume PDF preview</h2><p>Formatted to match your original resume structure.</p></div><button class="button button-secondary button-small" id="closeResumePreview" aria-label="Close PDF preview">Close</button></div><iframe id="resumePdfFrame" title="Tailored resume PDF preview"></iframe><div class="pdf-dialog-actions"><button class="button button-primary" id="downloadPreviewPdf">↓ Download this PDF</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

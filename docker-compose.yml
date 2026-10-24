@@ -1,0 +1,12 @@
+services:
+  opsready:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    restart: unless-stopped
