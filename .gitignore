@@ -3,3 +3,6 @@
 !.env.example
 node_modules/
 npm-debug.log*
+
+# PowerShell module analysis cache
+Microsoft/Windows/PowerShell/ModuleAnalysisCache
